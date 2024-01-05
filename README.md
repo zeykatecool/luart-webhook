@@ -30,7 +30,7 @@ local WillSend = {
     title = "LuaRT Webhook Module",
     description = "Hello World!",
     footer = {
-      text = "Send with LuaRT HTTP Module",
+      text = "Send with LuaRT HTTP Package",
     },
     }
   },
