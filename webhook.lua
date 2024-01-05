@@ -9,8 +9,6 @@ local WebHook = {
 }
 local NET = require("net")
 local JSON = require("JSON")
-local Discord = NET.Http("https://discord.com")
-Discord.headers["Content-Type"] = "application/json"
 function WebHook.SetId(num)
     if type(num) ~= "number" then
          error("Webhook ID must be a number.Not a "..type(num))
@@ -36,6 +34,8 @@ function WebHook.Send(tbl)
          error("Webhook send value must be a table.Not a "..type(tbl))
     else
         local JSONed = JSON.encode(tbl)
+local Discord = NET.Http("https://discord.com")
+Discord.headers["Content-Type"] = "application/json"
         Discord:post("/api/webhooks/"..WebHook.WebhookID.."/"..WebHook.WebhookToken, JSONed).after = function(self, response)
           if not response then
               error("Failed to send webhook : "..NET.error)
